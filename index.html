@@ -14,17 +14,20 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
         }
         
         nav {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: rgba(15, 23, 42, 0.95);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #3b82f6;
         }
         
         nav ul {
@@ -37,108 +40,258 @@
         }
         
         nav a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            transition: all 0.3s;
             padding: 0.5rem 1rem;
+            border-radius: 6px;
+            position: relative;
         }
         
         nav a:hover {
-            opacity: 0.8;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
+            color: #60a5fa;
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::after {
+            width: 80%;
         }
         
         .section {
             display: none;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
-            padding: 2rem;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
         }
         
         .section.active {
             display: block;
-            animation: fadeIn 0.5s;
+            animation: fadeInUp 0.6s ease-out;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
         
         h1 {
-            color: #1e3a8a;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 0.5rem;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
         }
         
         h2 {
-            color: #1e3a8a;
-            margin-top: 1.5rem;
+            color: #1e293b;
+            margin-top: 2rem;
             margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h2::before {
+            content: '▸';
+            color: #3b82f6;
+            font-size: 1.2rem;
         }
         
         h3 {
             color: #3b82f6;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
         
         p {
             margin-bottom: 1rem;
             text-align: justify;
+            line-height: 1.8;
         }
         
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
             color: white;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: backgroundMove 20s linear infinite;
+        }
+        
+        @keyframes backgroundMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
             color: white;
-            border: none;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1::after {
+            display: none;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-align: center;
+            opacity: 0.95;
+        }
+        
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .contact-info {
-            background: #f0f7ff;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+        
+        .contact-info h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info h3::before {
+            content: '📧';
+            font-size: 1.5rem;
         }
         
         .project-card {
-            background: #f9fafb;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             padding: 1.5rem;
-            margin: 1rem 0;
-            border-left: 4px solid #3b82f6;
-            border-radius: 4px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #8b5cf6;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '🔧';
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+        
+        .project-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.2);
         }
         
         .skill-category {
             margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid #06b6d4;
+            transition: all 0.3s;
+        }
+        
+        .skill-category:hover {
+            background: #f0f9ff;
+            border-left-width: 5px;
+        }
+        
+        .skill-category h3 {
+            color: #0e7490;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         
         .reference {
             font-size: 0.9rem;
-            padding-left: 2rem;
-            text-indent: -2rem;
-            margin: 0.5rem 0;
+            padding: 1rem;
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            border-radius: 4px;
+            margin: 1rem 0;
         }
         
         ul {
@@ -148,54 +301,242 @@
         
         li {
             margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        li::before {
+            content: '▹';
+            color: #3b82f6;
+            position: absolute;
+            left: -1rem;
+            font-weight: bold;
         }
         
         strong {
-            color: #1e3a8a;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tech-icon {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        
+        .tech-icon:hover {
+            background: #e0f2fe;
+            transform: scale(1.1);
+        }
+        
+        .tech-icon-symbol {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-icon-label {
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+        
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+        
+        a:hover {
+            color: #2563eb;
+            border-bottom: 1px solid #2563eb;
+        }
+        
+        .section-intro {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #0ea5e9;
         }
         
         @media (max-width: 768px) {
             nav ul {
-                gap: 1rem;
+                gap: 0.5rem;
+            }
+            
+            nav a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
             }
             
             .section {
                 margin: 1rem;
-                padding: 1rem;
+                padding: 1.5rem;
             }
             
             .hero h1 {
                 font-size: 2rem;
             }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3b82f6;
         }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#" onclick="showSection('home')">Home</a></li>
-            <li><a href="#" onclick="showSection('cv')">Resume</a></li>
-            <li><a href="#" onclick="showSection('reflection1')">Sustainability Reflection</a></li>
-            <li><a href="#" onclick="showSection('reflection2')">Intercultural Practice</a></li>
-            <li><a href="#" onclick="showSection('cover')">Cover Letter</a></li>
+            <li><a href="#" onclick="showSection('home')">🏠 Home</a></li>
+            <li><a href="#" onclick="showSection('cv')">📄 Resume</a></li>
+            <li><a href="#" onclick="showSection('reflection1')">🌱 Sustainability</a></li>
+            <li><a href="#" onclick="showSection('reflection2')">🌏 Intercultural Practice</a></li>
+            <li><a href="#" onclick="showSection('cover')">✉️ Cover Letter</a></li>
         </ul>
     </nav>
 
     <div id="home" class="section active">
         <div class="hero">
-            <h1>Abael Joseph</h1>
-            <p>Mechanical & Mechatronics Engineering Student</p>
+            <div class="hero-content">
+                <div class="hero-icon">⚙️</div>
+                <h1>Abael Joseph</h1>
+                <p>Mechanical & Mechatronics Engineering Student</p>
+            </div>
         </div>
         
-        <h2>About Me</h2>
-        <p>I am a fifth-year Mechanical and Mechatronics Engineering student at the University of Technology Sydney, passionate about designing and integrating mechanical, electronic, and software systems to solve real-world engineering problems. My focus areas include robotics, embedded systems, and electromechanical design.</p>
+        <div class="section-intro">
+            <h2>About Me</h2>
+            <p>I am a fifth-year student in Mechanical and Mechatronics Engineering at the University of Technology Sydney, where I enjoy transforming ideas into functional engineering systems. I am particularly motivated by hands-on design, problem-solving and seeing projects move from concept to implementation. My main technical interests are robotics, embedded systems, and electromechanical design where mechanical, electronic, and software elements must work together reliably.</p>
+        </div>
         
-        <p>Throughout my degree, I have developed strong hands-on experience through academic projects and industry work. My journey has been shaped by meaningful projects including developing autonomous robotics systems using Arduino-based motor control, designing an ultra-compact step-tracking smartwatch using an ESP32 microcontroller and custom PCB, and contributing to an Engineering Without Borders project focused on a sustainable solar–hydrogen energy system for an Indigenous community. These experiences have strengthened my commitment to practical, reliable, and socially responsible engineering solutions.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">5th</div>
+                <div class="stat-label">Year Engineering Student</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">78.67</div>
+                <div class="stat-label">Weighted Average Mark</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1+</div>
+                <div class="stat-label">Years Industry Experience</div>
+            </div>
+        </div>
         
-        <p>Currently, I work as an Intern Engineer at duagon Australia, where I support electromechanical systems integration, testing, and technical documentation within the rail communications sector. This role has helped me build a strong understanding of professional engineering practice, teamwork, and quality-driven work in safety-critical environments. I am motivated by the opportunity to contribute to projects that combine technical excellence with meaningful societal impact.</p>
+        <h2>My Engineering Journey</h2>
+        <p>Throughout my degree, I have built practical experience through academic projects and industry work. These include developing an autonomous robotic system for the Warman Design and Build Challenge, designing an ultra-compact step-tracking smartwatch using a custom ESP32-based PCB, and contributing to an Engineering Without Borders project focused on a sustainable solar–hydrogen energy system for an Indigenous community. These projects taught me to balance technical performance with simplicity, maintainability, and real-world constraints.</p>
         
-        <h2>Engineering Philosophy</h2>
-        <p>My approach to engineering is grounded in three core principles: technical rigor, sustainable design thinking, and cultural awareness. I believe that effective engineering solutions must not only perform well technically but also consider long-term sustainability, stakeholder needs, and cultural contexts. Through my academic and professional experiences, I have learned that the most successful projects balance innovation with practicality, efficiency with accessibility, and technical achievement with ethical responsibility.</p>
+        <p>I am currently working as an Intern Engineer at duagon Australia supporting the integration, testing, and technical documentation of electromechanical systems within the rail communications sector. Working in a safety-critical environment has strengthened my attention to detail, accountability, and appreciation for professional engineering standards. I am motivated to continue developing as an engineer while contributing to practical, ethical, and sustainable engineering solutions that deliver real value.</p>
+        
+        <h2>Core Technical Interests</h2>
+        <div class="icon-grid">
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">🤖</div>
+                <div class="tech-icon-label">Robotics</div>
+            </div>
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">💻</div>
+                <div class="tech-icon-label">Embedded Systems</div>
+            </div>
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">⚡</div>
+                <div class="tech-icon-label">Electronics</div>
+            </div>
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">🔧</div>
+                <div class="tech-icon-label">Mechanical Design</div>
+            </div>
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">📐</div>
+                <div class="tech-icon-label">CAD</div>
+            </div>
+            <div class="tech-icon">
+                <div class="tech-icon-symbol">🔌</div>
+                <div class="tech-icon-label">PCB Design</div>
+            </div>
+        </div>
         
         <div class="contact-info">
             <h3>Contact Information</h3>
@@ -206,83 +547,97 @@
     </div>
 
     <div id="cv" class="section">
-        <h1>Curriculum Vitae</h1>
+        <h1>📄 Curriculum Vitae</h1>
         
         <h2>Career Objective</h2>
         <p>Fifth-year Mechanical & Mechatronics Engineering student seeking a graduate engineering role to apply hands-on experience in robotics, embedded systems, and electromechanical design. I aim to contribute to innovative engineering solutions while developing my technical and professional skills in a collaborative team environment.</p>
         
-        <h2>Education</h2>
-        <h3>Bachelor of Engineering (Honours) – Mechanical and Mechatronics</h3>
-        <p><strong>University of Technology Sydney (UTS), Ultimo, NSW</strong><br>
-        March 2022 – November 2026</p>
+        <h2>🎓 Education</h2>
         
-        <p><strong>Academic Achievements:</strong></p>
-        <ul>
-            <li>High Distinction – Introduction to Mechatronics Engineering</li>
-            <li>High Distinction – Materials and Manufacturing Engineering A</li>
-            <li>Distinction – Introduction to Mechanical Engineering</li>
-            <li>Distinction – Introduction to Engineering Projects</li>
-            <li>Distinction – Programming 1</li>
-        </ul>
+        <div class="timeline-item">
+            <h3>Bachelor of Engineering (Honours) – Mechanical and Mechatronics</h3>
+            <p><strong>University of Technology Sydney (UTS), Ultimo, NSW</strong><br>
+            March 2022 – November 2026</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">78.67</div>
+                    <div class="stat-label">Weighted Average Mark (WAM)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5.46</div>
+                    <div class="stat-label">GPA (out of 7.00)</div>
+                </div>
+            </div>
+            
+            <p><strong>Academic Achievements:</strong></p>
+            <ul>
+                <li>High Distinction – Introduction to Mechatronics Engineering</li>
+                <li>High Distinction – Materials and Manufacturing Engineering A</li>
+                <li>Distinction – Introduction to Mechanical Engineering</li>
+                <li>Distinction – Introduction to Engineering Projects</li>
+                <li>Distinction – Programming 1</li>
+            </ul>
+        </div>
         
-        <h3>Higher School Certificate (HSC)</h3>
-        <p><strong>Fairvale High School</strong><br>
-        January 2016 – November 2021</p>
-        
-        <h2>Technical Skills</h2>
+        <h2>💼 Technical Skills</h2>
         
         <div class="skill-category">
-            <h3>CAD & Mechanical Design</h3>
+            <h3>🔧 CAD & Mechanical Design</h3>
             <p>SolidWorks, AutoCAD, AutoCAD Mechanical, Fusion 360, Autodesk Inventor</p>
         </div>
         
         <div class="skill-category">
-            <h3>Embedded Systems & Control</h3>
+            <h3>🤖 Embedded Systems & Control</h3>
             <p>Arduino, ESP32 (ESP32-C3 and variants), Raspberry Pi, ISaGRAF, firmware development, hardware interfacing</p>
         </div>
         
         <div class="skill-category">
-            <h3>Electronics & Hardware</h3>
+            <h3>⚡ Electronics & Hardware</h3>
             <p>Altium Designer (schematics, PCB layout), sensor integration, analog signal handling, LiPo power systems</p>
         </div>
         
         <div class="skill-category">
-            <h3>Programming</h3>
+            <h3>💻 Programming</h3>
             <p>C++, C, Python, Java</p>
         </div>
         
         <div class="skill-category">
-            <h3>Software & Documentation</h3>
-            <p>MATLAB, Microsoft Word / Excel / PowerPoint, Google Docs / Sheets / Slides, Microsoft Visio, Draw.io, Canva</p>
+            <h3>📊 Software & Documentation</h3>
+            <p>MATLAB, Microsoft Office Suite (Word, Excel, PowerPoint, Visio), Google Workspace (Docs, Sheets, Slides), Canva</p>
         </div>
         
-        <h2>Engineering Experience</h2>
+        <h2>🏢 Engineering Experience</h2>
         
-        <h3>Intern Engineer</h3>
-        <p><strong>duagon Australia</strong><br>
-        December 2023 – Present</p>
-        <ul>
-            <li>Supported testing of 5+ rail communication systems, ensuring compliance with industry standards</li>
-            <li>Managed CAD drawings for manufacturing in duagon DTK, including creating drawings for new metalwork orders in AutoCAD Mechanical</li>
-            <li>Led CAD, internal documentation, and compliance testing for a specific controller, ensuring readiness for deployment</li>
-            <li>Designed and tested jigs for incoming PCB goods and performed board conversions, updating PCB components as required</li>
-            <li>Gained experience in professional engineering workflows and multidisciplinary teamwork</li>
-        </ul>
+        <div class="timeline-item">
+            <h3>Intern Engineer <span class="experience-badge">Current Role</span></h3>
+            <p><strong>duagon Australia</strong><br>
+            December 2023 – Present</p>
+            <ul>
+                <li>Supported testing of 5+ rail communication systems, ensuring compliance with industry standards</li>
+                <li>Managed CAD drawings for manufacturing in duagon DTK, including creating drawings for new metalwork orders in AutoCAD Mechanical</li>
+                <li>Led CAD, internal documentation, and compliance testing for a specific controller, ensuring readiness for deployment</li>
+                <li>Designed and tested jigs for incoming PCB goods and performed board conversions, updating PCB components as required</li>
+                <li>Gained experience in professional engineering workflows and multidisciplinary teamwork</li>
+            </ul>
+        </div>
         
-        <h2>Casual Experience</h2>
+        <h2>💪 Casual Experience</h2>
         
-        <h3>Freight Forwarder</h3>
-        <p><strong>Border Express</strong><br>
-        May 2022 – June 2023</p>
-        <ul>
-            <li>Managed unloading and sorting of pallets and parcels in a high-volume warehouse</li>
-            <li>Developed teamwork, time management, and attention to detail</li>
-        </ul>
+        <div class="timeline-item">
+            <h3>Freight Forwarder</h3>
+            <p><strong>Border Express</strong><br>
+            May 2022 – June 2023</p>
+            <ul>
+                <li>Managed unloading and sorting of pallets and parcels in a high-volume warehouse</li>
+                <li>Developed teamwork, time management, and attention to detail</li>
+            </ul>
+        </div>
         
-        <h2>Relevant Projects</h2>
+        <h2>🚀 Relevant Projects</h2>
         
         <div class="project-card">
-            <h3>Engineering Without Borders (EWB) – Solar Hydrogen Generator</h3>
+            <h3>🌱 Engineering Without Borders (EWB) – Solar Hydrogen Generator</h3>
             <ul>
                 <li>Designed a sustainable off-grid energy system for an Indigenous community in collaboration with Dawul Wuru Aboriginal Corporation</li>
                 <li>Researched energy options; hydrogen fuel cells approximately 30% more efficient than diesel generators</li>
@@ -292,7 +647,7 @@
         </div>
         
         <div class="project-card">
-            <h3>Warman Design and Build Challenge – Autonomous Robotics System</h3>
+            <h3>🤖 Warman Design and Build Challenge – Autonomous Robotics System</h3>
             <ul>
                 <li>Programmed Arduino Uno with CNC shield to control stepper motors using C++</li>
                 <li>Designed and 3D-printed a robotic arm in SolidWorks for payload manipulation</li>
@@ -302,7 +657,7 @@
         </div>
         
         <div class="project-card">
-            <h3>Step-Tracking Smartwatch – Embedded Systems Project</h3>
+            <h3>⌚ Step-Tracking Smartwatch – Embedded Systems Project</h3>
             <ul>
                 <li>Built a compact wearable device using ESP32-C3 microcontroller with Wi-Fi & Bluetooth</li>
                 <li>Integrated 1.28″ TFT display, scrolling rotary encoder, and LiPo power system</li>
@@ -311,7 +666,7 @@
             </ul>
         </div>
         
-        <h2>Transferable Skills</h2>
+        <h2>🎯 Transferable Skills</h2>
         <ul>
             <li><strong>Teamwork:</strong> Demonstrated through industry employment and university group projects, contributing effectively to shared goals in fast-paced environments</li>
             <li><strong>Critical Thinking:</strong> Applied during engineering design projects to evaluate alternative solutions and improve system performance</li>
@@ -319,12 +674,16 @@
             <li><strong>Attention to Detail:</strong> Demonstrated in both warehouse operations and engineering projects through accurate execution and thorough research</li>
         </ul>
         
-        <h2>References</h2>
+        <h2>📋 References</h2>
         <p>Available upon request</p>
     </div>
 
     <div id="reflection1" class="section">
-        <h1>Reflection 1: Apply Principles of Sustainability to Create Viable Systems</h1>
+        <h1>🌱 Reflection 1: Apply Principles of Sustainability to Create Viable Systems</h1>
+        
+        <div class="section-intro">
+            <p><em>This reflection explores how engineering practice must consider environmental, social, and long-term viability alongside technical performance.</em></p>
+        </div>
         
         <p>During my studies, one of the most formative experiences related to sustainability was my involvement in an Engineering Without Borders (EWB) project focused on designing a solar–hydrogen energy system for an Indigenous community. The aim of the project was to propose a clean, reliable alternative to diesel-based power generation while accounting for environmental, social, and logistical constraints.</p>
         
@@ -338,12 +697,18 @@
         
         <p>This experience taught me that sustainable engineering is fundamentally about creating systems that endure, not just systems that perform well. In the future, I intend to approach sustainability by more actively considering stakeholder needs, knowledge transfer, and lifecycle impacts alongside technical efficiency. I will also aim to question my assumptions earlier in the design process to ensure that proposed solutions are viable, responsible, and context-appropriate.</p>
         
-        <h2>Reference</h2>
-        <p class="reference">Dowling, D., Carew, A., & Hadgraft, R. (2016). Engineering your future: An Australasian guide (3rd ed.). John Wiley & Sons.</p>
+        <h2>📚 Reference</h2>
+        <div class="reference">
+            <p>Dowling, D., Carew, A., & Hadgraft, R. (2016). <em>Engineering your future: An Australasian guide</em> (3rd ed.). John Wiley & Sons.</p>
+        </div>
     </div>
 
     <div id="reflection2" class="section">
-        <h1>Reflection 2: Professional Practice within Intercultural and Global Contexts</h1>
+        <h1>🌏 Reflection 2: Professional Practice within Intercultural and Global Contexts</h1>
+        
+        <div class="section-intro">
+            <p><em>This reflection examines the importance of cultural awareness and ethical sensitivity in engineering practice.</em></p>
+        </div>
         
         <p>A significant learning experience related to professional practice in intercultural and global contexts occurred during my involvement in the Engineering Without Borders project, where the design task required sensitivity to the needs of an Indigenous community. The project emphasised that engineering decisions do not occur in isolation and must consider cultural, social, and historical contexts.</p>
         
@@ -357,56 +722,8 @@
     </div>
 
     <div id="cover" class="section">
-        <h1>Cover Letter</h1>
+        <h1>✉️ Cover Letter</h1>
         
-        <p>Hiring Manager<br>
-        Industrus Engineering</p>
-        
-        <p>Dear Hiring Manager,</p>
-        
-        <p><strong>Re: Graduate Engineering Program</strong></p>
-        
-        <p>I am writing to apply for the Industrus Engineering Graduate Program as advertised. I am a fifth-year undergraduate student at the University of Technology Sydney (UTS), studying Mechanical and Mechatronics Engineering. I am currently undertaking an internship at duagon Australia, where I have gained practical experience in a professional engineering environment. Through this experience, I have developed technical, organisational, and teamwork skills that would allow me to contribute effectively as a graduate engineer at Industrus.</p>
-        
-        <h2>3.1 A commitment to ethical conduct and the highest standards of professional accountability</h2>
-        
-        <p>During my internship at duagon Australia, I assisted with testing and verification activities for electromechanical systems used in railway communication and control applications. Due to the safety-critical nature of rail systems, strict adherence to testing procedures and documentation standards was required. I ensured all test results were accurately recorded and followed established processes rather than making assumptions. Any uncertainties were raised with senior engineers for clarification before proceeding. This approach ensured compliance with professional and safety standards and reinforced the importance of accountability and ethical conduct in engineering practice.</p>
-        
-        <h2>3.2 The ability to engage with a creative, innovative and proactive environment</h2>
-        
-        <p>Throughout my internship and university projects, I worked in environments where requirements frequently evolved and timelines were limited. Rather than waiting for direction, I actively identified opportunities to improve processes and contribute ideas. During the Engineers Without Borders Solar Hydrogen Generator project, I researched alternative energy storage solutions and proposed the use of hydrogen fuel cells as a sustainable option. I contributed to refining the system design to ensure it was modular and transportable, demonstrating initiative and adaptability in an innovative engineering setting.</p>
-        
-        <h2>3.3 Demonstrated ability to effectively communicate both with other engineers and with stakeholders from different fields</h2>
-        
-        <p>While working at duagon Australia, I regularly communicated with engineers, technicians, and non-technical staff during system setup and testing activities. I used technical drawings and documentation when discussing tasks with engineers, while adjusting my communication style to focus on outcomes and safety considerations when engaging with non-engineering personnel. This ensured clear understanding across teams and supported efficient coordination of work, strengthening my ability to communicate across different professional backgrounds.</p>
-        
-        <h2>3.4 Demonstrated ability to use and manage information</h2>
-        
-        <p>During my internship, I worked with technical documentation, test data, and system specifications that required careful organisation and handling. I ensured files were structured clearly, assumptions were documented, and information was recorded accurately to support ongoing work. In my Step-Tracking Watch project, I managed firmware code, sensor data, and hardware schematics while maintaining clear records of design decisions. This allowed information to be used effectively and supported troubleshooting and future development.</p>
-        
-        <h2>3.5 The ability to manage your own performance in a professional environment</h2>
-        
-        <p>My role at duagon Australia required me to manage my workload with minimal supervision while meeting deadlines and quality expectations. I planned my tasks, prioritised responsibilities, and regularly communicated progress to supervising engineers. When challenges arose, I sought feedback and adjusted my approach accordingly. This experience strengthened my ability to work independently, remain accountable for my performance, and maintain professional standards in a workplace environment.</p>
-        
-        <h2>3.6 A demonstrated ability to work as part of a team and to show leadership when required</h2>
-        
-        <p>During the Warman Challenge Robot project at university, I worked as part of a team to design and build a robot under strict constraints. I took responsibility for programming the motor control system and designing a 3D-printed robotic arm, while also supporting team members with system integration. By sharing progress updates and assisting others when issues arose, the team was able to complete the project successfully. This experience demonstrated my ability to work collaboratively and take initiative within a team when required.</p>
-        
-        <p>If you would like me to attend an interview, please feel free to contact me via email at abael.joseph@gmail.com. I can also be reached on LinkedIn at www.linkedin.com/in/abaeljoseph. I look forward to hearing from you.</p>
-        
-        <p>Regards,<br>
-        Abael Joseph</p>
-    </div>
-
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+        <div style="margin-bottom: 2rem;">
+            <p>Abael Joseph<br>
+            abael.joseph@gmail.com<br>
