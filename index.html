@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abael Joseph - Engineering ePortfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        nav {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 1rem;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        
+        .section {
+            display: none;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: #1e3a8a;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            color: white;
+            border: none;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background: #f0f7ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .project-card {
+            background: #f9fafb;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #3b82f6;
+            border-radius: 4px;
+        }
+        
+        .skill-category {
+            margin: 1.5rem 0;
+        }
+        
+        .reference {
+            font-size: 0.9rem;
+            padding-left: 2rem;
+            text-indent: -2rem;
+            margin: 0.5rem 0;
+        }
+        
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        strong {
+            color: #1e3a8a;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .section {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('cv')">Resume</a></li>
+            <li><a href="#" onclick="showSection('reflection1')">Sustainability Reflection</a></li>
+            <li><a href="#" onclick="showSection('reflection2')">Intercultural Practice</a></li>
+            <li><a href="#" onclick="showSection('cover')">Cover Letter</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="section active">
+        <div class="hero">
+            <h1>Abael Joseph</h1>
+            <p>Mechanical & Mechatronics Engineering Student</p>
+        </div>
+        
+        <h2>About Me</h2>
+        <p>I am a fifth-year Mechanical and Mechatronics Engineering student at the University of Technology Sydney, passionate about designing and integrating mechanical, electronic, and software systems to solve real-world engineering problems. My focus areas include robotics, embedded systems, and electromechanical design.</p>
+        
+        <p>Throughout my degree, I have developed strong hands-on experience through academic projects and industry work. My journey has been shaped by meaningful projects including developing autonomous robotics systems using Arduino-based motor control, designing an ultra-compact step-tracking smartwatch using an ESP32 microcontroller and custom PCB, and contributing to an Engineering Without Borders project focused on a sustainable solar–hydrogen energy system for an Indigenous community. These experiences have strengthened my commitment to practical, reliable, and socially responsible engineering solutions.</p>
+        
+        <p>Currently, I work as an Intern Engineer at duagon Australia, where I support electromechanical systems integration, testing, and technical documentation within the rail communications sector. This role has helped me build a strong understanding of professional engineering practice, teamwork, and quality-driven work in safety-critical environments. I am motivated by the opportunity to contribute to projects that combine technical excellence with meaningful societal impact.</p>
+        
+        <h2>Engineering Philosophy</h2>
+        <p>My approach to engineering is grounded in three core principles: technical rigor, sustainable design thinking, and cultural awareness. I believe that effective engineering solutions must not only perform well technically but also consider long-term sustainability, stakeholder needs, and cultural contexts. Through my academic and professional experiences, I have learned that the most successful projects balance innovation with practicality, efficiency with accessibility, and technical achievement with ethical responsibility.</p>
+        
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> abael.joseph@gmail.com</p>
+            <p><strong>Phone:</strong> 0450 196 990</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/abaeljoseph" target="_blank">linkedin.com/in/abaeljoseph</a></p>
+        </div>
+    </div>
+
+    <div id="cv" class="section">
+        <h1>Curriculum Vitae</h1>
+        
+        <h2>Career Objective</h2>
+        <p>Fifth-year Mechanical & Mechatronics Engineering student seeking a graduate engineering role to apply hands-on experience in robotics, embedded systems, and electromechanical design. I aim to contribute to innovative engineering solutions while developing my technical and professional skills in a collaborative team environment.</p>
+        
+        <h2>Education</h2>
+        <h3>Bachelor of Engineering (Honours) – Mechanical and Mechatronics</h3>
+        <p><strong>University of Technology Sydney (UTS), Ultimo, NSW</strong><br>
+        March 2022 – November 2026</p>
+        
+        <p><strong>Academic Achievements:</strong></p>
+        <ul>
+            <li>High Distinction – Introduction to Mechatronics Engineering</li>
+            <li>High Distinction – Materials and Manufacturing Engineering A</li>
+            <li>Distinction – Introduction to Mechanical Engineering</li>
+            <li>Distinction – Introduction to Engineering Projects</li>
+            <li>Distinction – Programming 1</li>
+        </ul>
+        
+        <h3>Higher School Certificate (HSC)</h3>
+        <p><strong>Fairvale High School</strong><br>
+        January 2016 – November 2021</p>
+        
+        <h2>Technical Skills</h2>
+        
+        <div class="skill-category">
+            <h3>CAD & Mechanical Design</h3>
+            <p>SolidWorks, AutoCAD, AutoCAD Mechanical, Fusion 360, Autodesk Inventor</p>
+        </div>
+        
+        <div class="skill-category">
+            <h3>Embedded Systems & Control</h3>
+            <p>Arduino, ESP32 (ESP32-C3 and variants), Raspberry Pi, ISaGRAF, firmware development, hardware interfacing</p>
+        </div>
+        
+        <div class="skill-category">
+            <h3>Electronics & Hardware</h3>
+            <p>Altium Designer (schematics, PCB layout), sensor integration, analog signal handling, LiPo power systems</p>
+        </div>
+        
+        <div class="skill-category">
+            <h3>Programming</h3>
+            <p>C++, C, Python, Java</p>
+        </div>
+        
+        <div class="skill-category">
+            <h3>Software & Documentation</h3>
+            <p>MATLAB, Microsoft Word / Excel / PowerPoint, Google Docs / Sheets / Slides, Microsoft Visio, Draw.io, Canva</p>
+        </div>
+        
+        <h2>Engineering Experience</h2>
+        
+        <h3>Intern Engineer</h3>
+        <p><strong>duagon Australia</strong><br>
+        December 2023 – Present</p>
+        <ul>
+            <li>Supported testing of 5+ rail communication systems, ensuring compliance with industry standards</li>
+            <li>Managed CAD drawings for manufacturing in duagon DTK, including creating drawings for new metalwork orders in AutoCAD Mechanical</li>
+            <li>Led CAD, internal documentation, and compliance testing for a specific controller, ensuring readiness for deployment</li>
+            <li>Designed and tested jigs for incoming PCB goods and performed board conversions, updating PCB components as required</li>
+            <li>Gained experience in professional engineering workflows and multidisciplinary teamwork</li>
+        </ul>
+        
+        <h2>Casual Experience</h2>
+        
+        <h3>Freight Forwarder</h3>
+        <p><strong>Border Express</strong><br>
+        May 2022 – June 2023</p>
+        <ul>
+            <li>Managed unloading and sorting of pallets and parcels in a high-volume warehouse</li>
+            <li>Developed teamwork, time management, and attention to detail</li>
+        </ul>
+        
+        <h2>Relevant Projects</h2>
+        
+        <div class="project-card">
+            <h3>Engineering Without Borders (EWB) – Solar Hydrogen Generator</h3>
+            <ul>
+                <li>Designed a sustainable off-grid energy system for an Indigenous community in collaboration with Dawul Wuru Aboriginal Corporation</li>
+                <li>Researched energy options; hydrogen fuel cells approximately 30% more efficient than diesel generators</li>
+                <li>Developed a modular, transportable system design suitable for remote deployment</li>
+                <li>Focused on long-term sustainability and reduced environmental impact</li>
+            </ul>
+        </div>
+        
+        <div class="project-card">
+            <h3>Warman Design and Build Challenge – Autonomous Robotics System</h3>
+            <ul>
+                <li>Programmed Arduino Uno with CNC shield to control stepper motors using C++</li>
+                <li>Designed and 3D-printed a robotic arm in SolidWorks for payload manipulation</li>
+                <li>Implemented motion control logic; autonomous robot successfully deposited 90% of objects within time limits</li>
+                <li>Integrated mechanical, electronics, and software subsystems into a fully functional autonomous robot</li>
+            </ul>
+        </div>
+        
+        <div class="project-card">
+            <h3>Step-Tracking Smartwatch – Embedded Systems Project</h3>
+            <ul>
+                <li>Built a compact wearable device using ESP32-C3 microcontroller with Wi-Fi & Bluetooth</li>
+                <li>Integrated 1.28″ TFT display, scrolling rotary encoder, and LiPo power system</li>
+                <li>Developed firmware for real-time step tracking using an analog accelerometer</li>
+                <li>Designed custom PCB, user interface, and robust standalone embedded system</li>
+            </ul>
+        </div>
+        
+        <h2>Transferable Skills</h2>
+        <ul>
+            <li><strong>Teamwork:</strong> Demonstrated through industry employment and university group projects, contributing effectively to shared goals in fast-paced environments</li>
+            <li><strong>Critical Thinking:</strong> Applied during engineering design projects to evaluate alternative solutions and improve system performance</li>
+            <li><strong>Problem-Solving:</strong> Developed through practical engineering tasks and programming challenges requiring efficient and reliable solutions</li>
+            <li><strong>Attention to Detail:</strong> Demonstrated in both warehouse operations and engineering projects through accurate execution and thorough research</li>
+        </ul>
+        
+        <h2>References</h2>
+        <p>Available upon request</p>
+    </div>
+
+    <div id="reflection1" class="section">
+        <h1>Reflection 1: Apply Principles of Sustainability to Create Viable Systems</h1>
+        
+        <p>During my studies, one of the most formative experiences related to sustainability was my involvement in an Engineering Without Borders (EWB) project focused on designing a solar–hydrogen energy system for an Indigenous community. The aim of the project was to propose a clean, reliable alternative to diesel-based power generation while accounting for environmental, social, and logistical constraints.</p>
+        
+        <p>At the beginning of the project, I felt motivated and excited by the opportunity to work on a system that could have a positive long-term impact. However, I also felt uncertain about whether advanced technologies such as hydrogen fuel cells were realistic for a remote community setting. I was concerned that proposing a technically efficient system might overlook practical issues such as maintenance, transport, and long-term usability.</p>
+        
+        <p>I realised that my initial assumptions were heavily influenced by a technical mindset that prioritised efficiency and performance. I believed that a more advanced system would automatically be a better solution. As the project progressed, this belief was challenged when our research highlighted the importance of scalability, community involvement, and long-term resource management in sustainable engineering solutions.</p>
+        
+        <p>One of the key difficulties we encountered was balancing environmental sustainability with system complexity. While hydrogen fuel cells offered higher efficiency and lower emissions, they also introduced challenges related to infrastructure, training, and cost. Recognising these difficulties required us to critically assess whether our design truly supported long-term sustainability rather than just short-term technical success.</p>
+        
+        <p>To broaden my perspective, I engaged with sustainability frameworks discussed in engineering literature and course materials, particularly the principles outlined by Dowling et al. (2016). Concepts such as conserving resources and consulting stakeholders helped me understand that sustainability extends beyond environmental impact to include social and economic viability. This shifted my focus toward designing systems that could be maintained, adapted, and understood by the community over time.</p>
+        
+        <p>This experience taught me that sustainable engineering is fundamentally about creating systems that endure, not just systems that perform well. In the future, I intend to approach sustainability by more actively considering stakeholder needs, knowledge transfer, and lifecycle impacts alongside technical efficiency. I will also aim to question my assumptions earlier in the design process to ensure that proposed solutions are viable, responsible, and context-appropriate.</p>
+        
+        <h2>Reference</h2>
+        <p class="reference">Dowling, D., Carew, A., & Hadgraft, R. (2016). Engineering your future: An Australasian guide (3rd ed.). John Wiley & Sons.</p>
+    </div>
+
+    <div id="reflection2" class="section">
+        <h1>Reflection 2: Professional Practice within Intercultural and Global Contexts</h1>
+        
+        <p>A significant learning experience related to professional practice in intercultural and global contexts occurred during my involvement in the Engineering Without Borders project, where the design task required sensitivity to the needs of an Indigenous community. The project emphasised that engineering decisions do not occur in isolation and must consider cultural, social, and historical contexts.</p>
+        
+        <p>Initially, I felt confident contributing from a technical perspective but uncertain about how to appropriately engage with cultural considerations that I was less familiar with. I was aware that making assumptions about community needs or priorities could result in solutions that were technically sound but socially ineffective. This uncertainty made me more cautious in how I approached design decisions and group discussions.</p>
+        
+        <p>I recognised that my personal background and engineering training had shaped a problem-solving approach that prioritised optimisation and standardisation. This belief was challenged when it became clear that solutions suitable for urban or industrial contexts may not translate effectively to remote or culturally distinct communities. A key difficulty was ensuring that our design did not impose external values or overlook community autonomy.</p>
+        
+        <p>To address this, our team relied on research, stakeholder reports, and guidance provided by EWB to gain a deeper understanding of the community's cultural and practical context. Considering perspectives beyond our own, including social and ethical dimensions, helped me appreciate the importance of respectful consultation and culturally informed design. This aligned with professional engineering expectations around ethical practice and global responsibility.</p>
+        
+        <p>Through this process, I learned that effective engineering practice in intercultural contexts requires humility, active listening, and adaptability. Technical expertise alone is insufficient if it is not supported by cultural awareness and ethical judgment. In future professional practice, I intend to engage more deliberately with diverse perspectives, seek guidance when working in unfamiliar contexts, and design solutions that respect local knowledge and values while meeting engineering objectives.</p>
+    </div>
+
+    <div id="cover" class="section">
+        <h1>Cover Letter</h1>
+        
+        <p>Hiring Manager<br>
+        Industrus Engineering</p>
+        
+        <p>Dear Hiring Manager,</p>
+        
+        <p><strong>Re: Graduate Engineering Program</strong></p>
+        
+        <p>I am writing to apply for the Industrus Engineering Graduate Program as advertised. I am a fifth-year undergraduate student at the University of Technology Sydney (UTS), studying Mechanical and Mechatronics Engineering. I am currently undertaking an internship at duagon Australia, where I have gained practical experience in a professional engineering environment. Through this experience, I have developed technical, organisational, and teamwork skills that would allow me to contribute effectively as a graduate engineer at Industrus.</p>
+        
+        <h2>3.1 A commitment to ethical conduct and the highest standards of professional accountability</h2>
+        
+        <p>During my internship at duagon Australia, I assisted with testing and verification activities for electromechanical systems used in railway communication and control applications. Due to the safety-critical nature of rail systems, strict adherence to testing procedures and documentation standards was required. I ensured all test results were accurately recorded and followed established processes rather than making assumptions. Any uncertainties were raised with senior engineers for clarification before proceeding. This approach ensured compliance with professional and safety standards and reinforced the importance of accountability and ethical conduct in engineering practice.</p>
+        
+        <h2>3.2 The ability to engage with a creative, innovative and proactive environment</h2>
+        
+        <p>Throughout my internship and university projects, I worked in environments where requirements frequently evolved and timelines were limited. Rather than waiting for direction, I actively identified opportunities to improve processes and contribute ideas. During the Engineers Without Borders Solar Hydrogen Generator project, I researched alternative energy storage solutions and proposed the use of hydrogen fuel cells as a sustainable option. I contributed to refining the system design to ensure it was modular and transportable, demonstrating initiative and adaptability in an innovative engineering setting.</p>
+        
+        <h2>3.3 Demonstrated ability to effectively communicate both with other engineers and with stakeholders from different fields</h2>
+        
+        <p>While working at duagon Australia, I regularly communicated with engineers, technicians, and non-technical staff during system setup and testing activities. I used technical drawings and documentation when discussing tasks with engineers, while adjusting my communication style to focus on outcomes and safety considerations when engaging with non-engineering personnel. This ensured clear understanding across teams and supported efficient coordination of work, strengthening my ability to communicate across different professional backgrounds.</p>
+        
+        <h2>3.4 Demonstrated ability to use and manage information</h2>
+        
+        <p>During my internship, I worked with technical documentation, test data, and system specifications that required careful organisation and handling. I ensured files were structured clearly, assumptions were documented, and information was recorded accurately to support ongoing work. In my Step-Tracking Watch project, I managed firmware code, sensor data, and hardware schematics while maintaining clear records of design decisions. This allowed information to be used effectively and supported troubleshooting and future development.</p>
+        
+        <h2>3.5 The ability to manage your own performance in a professional environment</h2>
+        
+        <p>My role at duagon Australia required me to manage my workload with minimal supervision while meeting deadlines and quality expectations. I planned my tasks, prioritised responsibilities, and regularly communicated progress to supervising engineers. When challenges arose, I sought feedback and adjusted my approach accordingly. This experience strengthened my ability to work independently, remain accountable for my performance, and maintain professional standards in a workplace environment.</p>
+        
+        <h2>3.6 A demonstrated ability to work as part of a team and to show leadership when required</h2>
+        
+        <p>During the Warman Challenge Robot project at university, I worked as part of a team to design and build a robot under strict constraints. I took responsibility for programming the motor control system and designing a 3D-printed robotic arm, while also supporting team members with system integration. By sharing progress updates and assisting others when issues arose, the team was able to complete the project successfully. This experience demonstrated my ability to work collaboratively and take initiative within a team when required.</p>
+        
+        <p>If you would like me to attend an interview, please feel free to contact me via email at abael.joseph@gmail.com. I can also be reached on LinkedIn at www.linkedin.com/in/abaeljoseph. I look forward to hearing from you.</p>
+        
+        <p>Regards,<br>
+        Abael Joseph</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
