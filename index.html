@@ -218,6 +218,28 @@
             50% { transform: translateY(-10px); }
         }
         
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 5px solid white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+            animation: fadeInScale 0.8s ease-out;
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         .contact-info {
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             padding: 1.5rem;
@@ -479,7 +501,7 @@
     <div id="home" class="section active">
         <div class="hero">
             <div class="hero-content">
-                <div class="hero-icon">⚙️</div>
+                <img src="profile.jpg" alt="Abael Joseph" class="profile-photo">
                 <h1>Abael Joseph</h1>
                 <p>Mechanical & Mechatronics Engineering Student</p>
             </div>
@@ -500,7 +522,7 @@
                 <div class="stat-label">Weighted Average Mark</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">1+</div>
+                <div class="stat-number">2+</div>
                 <div class="stat-label">Years Industry Experience</div>
             </div>
         </div>
@@ -727,3 +749,57 @@
         <div style="margin-bottom: 2rem;">
             <p>Abael Joseph<br>
             abael.joseph@gmail.com<br>
+            www.linkedin.com/in/abaeljoseph</p>
+            
+            <p>Hiring Manager<br>
+            Industrus Engineering</p>
+        </div>
+        
+        <p>Dear Hiring Manager,</p>
+        
+        <p><strong>Re: Graduate Engineering Program</strong></p>
+        
+        <p>I am writing to apply for the Industrus Engineering Graduate Program. I am a fifth-year Mechanical and Mechatronics Engineering student at the University of Technology Sydney and currently working as an Intern Engineer at duagon Australia. I am particularly interested in Industrus Engineering because of its work in infrastructure and transport and its focus on delivering practical engineering solutions with real community impact.</p>
+        
+        <h2>Commitment to ethical conduct and professional accountability</h2>
+        
+        <p>During my internship at duagon Australia, I supported testing and verification activities for safety-critical rail communication and control systems. This work required strict adherence to testing procedures and documentation standards. I ensured all results were recorded accurately and raised any uncertainties with senior engineers before proceeding. This experience reinforced the importance of accountability, attention to detail, and ethical conduct in safety-critical engineering environments.</p>
+        
+        <h2>Ability to engage in a creative and innovative environment</h2>
+        
+        <p>Through both industry work and university projects, I have worked in environments where requirements evolved and timelines were tight. During the Engineering Without Borders Solar Hydrogen project, I researched alternative energy storage options and contributed to refining a modular, transportable system design. This required adaptability and initiative while balancing innovation with practical constraints.</p>
+        
+        <h2>Communication with engineers and stakeholders</h2>
+        
+        <p>At duagon Australia, I regularly communicated with engineers, technicians, and non-technical staff during system setup and testing activities. I used technical drawings and documentation when working with engineers, while focusing on safety outcomes and task objectives when communicating with non-technical stakeholders. This helped ensure shared understanding and effective coordination across teams.</p>
+        
+        <h2>Ability to use and manage information</h2>
+        
+        <p>My role required careful management of technical documentation, test data, and system specifications. I maintained clear file structures, documented assumptions, and ensured records were kept accurately to support traceability and future work. This reduced errors and supported efficient collaboration during testing and verification activities.</p>
+        
+        <h2>Ability to manage personal performance</h2>
+        
+        <p>I managed my workload with minimal supervision by planning tasks, prioritising responsibilities, and providing regular progress updates to supervising engineers. When challenges arose, I actively sought feedback and adjusted my approach to meet deadlines while maintaining quality standards.</p>
+        
+        <h2>Teamwork and leadership</h2>
+        
+        <p>During the Warman Design and Build Challenge, I worked as part of a team under strict constraints to design and build an autonomous robot. I took responsibility for programming the motor control system and designing a 3D-printed robotic arm, while also supporting overall system integration. This collaborative approach contributed to the successful completion of the project.</p>
+        
+        <p>I would welcome the opportunity to discuss my application further and am available for an interview at your convenience.</p>
+        
+        <p>Regards,<br>
+            Abael Joseph</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
